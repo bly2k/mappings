@@ -1,0 +1,27 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1, 
+      "number_of_replicas": 0
+    }
+  }, 
+  "mappings": {
+    "doc": {
+      "_all": {
+        "enabled": true,
+        "analyzer": "keyword",
+        "store": "yes"
+      },
+      "properties": {
+        "foo": {
+          "type": "string",
+          "fields": {
+            "raw": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

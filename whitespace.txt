@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "doc": {
+      "properties": {
+        "foo": {
+          "type": "string",
+          "analyzer": "whitespace"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1, 
+      "number_of_replicas": 0,
+      "analysis": {
+        "analyzer": {
+          "syn1": {
+            "tokenizer": "standard",
+            "filter": [
+              "standard",
+              "syn1"
+            ]
+          }
+        },
+        "filter": {
+          "syn1": {
+            "type": "synonym",
+            "synonyms": [
+              "bar,barbar=>bar"
+            ]
+          }
+        }
+      }
+    }
+  }, 
+  "mappings": {
+    "doc": {
+      "properties": {
+        "foo": {
+          "type": "string",
+          "analyzer": "syn1"
+        }
+      }
+    }
+  }
+}

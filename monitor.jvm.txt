@@ -1,0 +1,12 @@
+logger.warn("[gc][gc.name()][seq][gc.collectionCount()] 
+  duration [TimeValue.timeValueMillis(collectionTime)], 
+  collections [collections]/[TimeValue.timeValueMillis(currentJvmStats.timestamp() - lastJvmStats.timestamp())], 
+  total [TimeValue.timeValueMillis(collectionTime)]/[gc.collectionTime()], 
+  memory [lastJvmStats.mem().heapUsed()]->[currentJvmStats.mem().heapUsed()]
+  /
+  [JvmInfo.jvmInfo().mem().heapMax()], all_pools {}",
+  
+pools:
+
+  {[currentPool.name()] [prevPool.used()]->[currentPool.used()]/[currentPool.getMax()]}
+

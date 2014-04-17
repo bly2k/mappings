@@ -1,0 +1,38 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1, 
+      "number_of_replicas": 0,
+      "analysis": {
+        "analyzer": {
+          "en1": {
+            "tokenizer": "standard",
+            "filter": [
+              "standard",
+              "lowercase",
+              "en1"
+            ]
+          }
+        },
+        "filter": {
+          "en1": {
+            "type" : "edgeNGram", 
+            "side" : "front", 
+            "min_gram" : 1, 
+            "max_gram" : 10
+          }
+        }
+      }
+    }
+  }, 
+  "mappings": {
+    "doc": {
+      "properties": {
+        "street": {
+          "type": "string",
+          "analyzer": "en1"
+        }
+      }
+    }
+  }
+}

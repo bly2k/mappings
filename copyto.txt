@@ -1,0 +1,26 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1, 
+      "number_of_replicas": 0
+    }
+  }, 
+  "mappings": {
+    "doc": {
+      "properties": {
+        "foo_bar": {
+          "store": "yes",
+          "type": "string"
+        },
+        "foo": {
+          "type": "string",
+          "copy_to": "foo_bar"
+        },
+        "bar": {
+          "type": "string",
+          "copy_to": "foo_bar"
+        }
+      }
+    }
+  }
+}

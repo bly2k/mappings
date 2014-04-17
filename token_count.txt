@@ -1,0 +1,31 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1, 
+      "number_of_replicas": 0
+    }
+  }, 
+  "mappings": {
+    "author": {
+      "properties" : {
+        "name" : { "type" : "string" },
+        "books" : {
+          "properties" : {
+            "title" : { "type" : "string" },
+            "category" :  { 
+              "type" : "multi_field",
+              "fields": {
+                "category": { "type": "string", "index" : "not_analyzed" },
+                "tokens": {
+                  "type": "token_count",
+                  "analyzer": "simple",
+                  "store": "yes"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

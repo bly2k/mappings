@@ -1,0 +1,27 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1, 
+      "number_of_replicas": 0
+    }
+  }, 
+  "mappings": {
+    "doc": {
+      "properties": {
+        "name": { "type": "string" },
+        "n1": {
+          "type": "nested",
+          "properties": {
+            "name": {
+              "type": "string",
+              "store": true
+            }
+          }
+        },
+        "n2": {
+          "properties": {}
+        }
+      }
+    }
+  }
+}

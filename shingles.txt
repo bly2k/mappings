@@ -1,0 +1,38 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1, 
+      "number_of_replicas": 0,
+      "analysis": {
+        "analyzer": {
+          "shingle1": {
+            "tokenizer": "standard",
+            "filter": [
+              "standard",
+              "lowercase",
+              "shingle1"
+            ]
+          }
+        },
+        "filter": {
+          "shingle1": {
+            "type" : "shingle", 
+            "max_shingle_size": 3, 
+            "min_shingle_size": 2, 
+            "output_unigrams": false
+          }
+        }
+      }
+    }
+  }, 
+  "mappings": {
+    "doc": {
+      "properties": {
+        "foo": {
+          "type": "string",
+          "analyzer": "shingle1"
+        }
+      }
+    }
+  }
+}
